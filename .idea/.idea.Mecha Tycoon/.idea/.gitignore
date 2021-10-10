@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.Mecha Tycoon.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\Download\unity\Unity 3D\Intr_setup\Mecha Tycoon\.idea\.idea.Mecha Tycoon\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
