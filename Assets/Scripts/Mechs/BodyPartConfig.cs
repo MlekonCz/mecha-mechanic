@@ -36,11 +36,19 @@ namespace Mechs
         
         public Transform GetNextBuildPosition()
         {
-            if (_bodyPart.GetComponent<BodyPart>().GetNextBuildingPosition() == null)
+            // Try get component zpusob
+            if (_bodyPart.TryGetComponent(out BodyPart bodyPart))
             {
-                return null;
+                return bodyPart.NextBuildingPosition;
             }
-            return  _bodyPart.GetComponent<BodyPart>().GetNextBuildingPosition();
+            return null;
+            
+            //  Stary zpusob
+            // if (_bodyPart.GetComponent<BodyPart>().NextBuildingPosition == null)
+            // {
+            //     return null;
+            // }
+            // return  _bodyPart.GetComponent<BodyPart>().NextBuildingPosition;
         }
         
         
@@ -60,7 +68,7 @@ namespace Mechs
         }
 
         public void DeliverPart(Transform deliveryLocation)
-        {
+        { 
             if (partsToDeliver == 1)
             {
                 _bodyPart = Instantiate(bodyPrefab, deliveryLocation.position, Quaternion.identity);

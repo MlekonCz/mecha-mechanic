@@ -8,6 +8,9 @@ namespace Mechs
         [SerializeField] private BodyPartConfig _bodyPartConfig;
         [SerializeField] private Transform nextBuildingPosition;
 
+        public Transform NextBuildingPosition => nextBuildingPosition;
+
+
         private void Start()
         {
             if (transform.parent == null){return;}
@@ -21,10 +24,6 @@ namespace Mechs
         {
             return _bodyPartConfig;
         }
-
-        public Transform GetNextBuildingPosition()
-        {
-            return nextBuildingPosition;
-        }
+        
     }
 }

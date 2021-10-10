@@ -145,7 +145,7 @@ namespace Interactions
                 pickedUpObject = null;
             }
         }
-        private bool PressButton(bool hold)
+        private bool PressButton(bool hold) // I will use this later when I will learn how to use impact asset pack - now it does nothing
         {
             RaycastHit hit;
             if (Physics.Raycast(mainCamera.position + mainCamera.forward, mainCamera.forward, out hit, interactionDistance))

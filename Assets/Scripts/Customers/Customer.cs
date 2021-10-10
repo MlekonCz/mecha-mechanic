@@ -24,11 +24,12 @@ namespace Customers
         [SerializeField] private CustomerCanvas customerCanvas;
         [SerializeField] private float bottomRangeForSellMoney = 50f;
         [SerializeField] private float upperRangeForSellMoney = 150f;
-        [SerializeField] [Tooltip("percentage")] private float reducedMoneyPerMissingAttribute = 20f;
-        [SerializeField] List<AttributesOfParts> _availableAttributes = new List<AttributesOfParts>();
-        [SerializeField] List<AttributesOfParts> requiredAttributes = new List<AttributesOfParts>();
+        [SerializeField] [Tooltip("percentage")] 
+        private float reducedMoneyPerMissingAttribute = 20f;
+        [SerializeField] private List<AttributesOfParts> _availableAttributes = new List<AttributesOfParts>();
+        [SerializeField] private List<AttributesOfParts> requiredAttributes = new List<AttributesOfParts>();
         private List<String> _namesOfAttributes;
-        float _moneyForMech;
+        private float _moneyForMech;
         private bool _isBuying = false;
         private int _numberOfRequiredAttributes;
         private int _matchingAttributes;
@@ -171,7 +172,7 @@ namespace Customers
             return percentageToReduce;
         }
 
-        List<String> ListOfParts()
+        private List<String> ListOfParts()
         {
             _namesOfAttributes = new List<string>();
             foreach (AttributesOfParts attribute in requiredAttributes)
