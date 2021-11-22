@@ -21,8 +21,9 @@ namespace Core
 
         public void LoadScene(ScenesIndexes scene, ScenesIndexes lastScene)
         {
-            SceneManager.LoadSceneAsync((int) scene, LoadSceneMode.Additive);
             SceneManager.UnloadSceneAsync((int) lastScene);
+            SceneManager.LoadSceneAsync((int) scene, LoadSceneMode.Additive);
+            
         }
 
     }

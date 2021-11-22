@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Core;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,9 +16,6 @@ namespace UI
         private bool _initialized = false;
         private bool _gameIsRunning = false;
 
-        //public Button StartButton;
-        //public Button QuitButton;
-
         private void Awake()
         {
             _mainMenuManager = FindObjectOfType<MainMenuManager>();
@@ -33,28 +31,9 @@ namespace UI
 
         private void SetupUIManager()
         {
-            // StartButton.onClick.AddListener(OnStartClicked);
-            // QuitButton.onClick.AddListener(OnQuitClicked);
-
             _mainMenuManager.OnGameStarted += InitGameCanvas;
             _mainMenuManager.OnGameExit += InitMenuCanvas;
         }
-
-        // private void OnQuitClicked()
-        // {
-        //     _mainMenuManager.QuitGame();
-        // }
-        //
-        // /// <summary>
-        // /// Funkce, ktera se zavola, kdyz na UI vrstve kliknu na Start Game, dale jde do Main Menu
-        // /// </summary>
-        // private void OnStartClicked()
-        // {
-        //     Debug.Log($"On start button clicked. Starting game!");
-        //     _mainMenuManager.StartGame();
-        //     _gameIsRunning = true;
-        // }
-
         private void InitGameCanvas()
         {
             _menuUi.SetActive(false);
@@ -66,11 +45,6 @@ namespace UI
             _gameUi.SetActive(false);
             _menuUi.SetActive(true);
         }
-
-        // private void OnDestroy()
-        // {
-        //     StartButton.onClick.RemoveAllListeners();
-        // }
 
         private void Update()
         {

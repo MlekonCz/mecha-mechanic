@@ -9,6 +9,7 @@ TagManager:
   - Pickable
   - RobotFrame
   - Counter
+  - Light
   layers:
   - Default
   - TransparentFX

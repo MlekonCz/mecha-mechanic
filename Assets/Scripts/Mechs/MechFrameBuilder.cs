@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,9 @@ namespace Mechs
         private bool _torsoPlaced = false;
         private bool _startedConstruction = false;
             
-            
+        public event Action onConstructionStarted;
+        public event Action onConstructionFinished;
+        
         private void Start()
         {
             _originalBuildPoint = buildPoint;
@@ -50,6 +53,7 @@ namespace Mechs
             foreach (GameObject part in bodyParts)
             {
                 if (ConditionCheck(bodyPart, part)) continue;
+                onConstructionStarted?.Invoke();
                 if (bodyPart.isArm) // if you spawn arm
                 {
                     if (InstallArm(bodyPart, part)){return;}
@@ -68,7 +72,7 @@ namespace Mechs
             }
         }
 
-        private static bool ConditionCheck(BodyPartConfig bodyPart, GameObject part)
+        private bool ConditionCheck(BodyPartConfig bodyPart, GameObject part)
         {
             if (part.activeInHierarchy == false){return true;}
             var partConfig = part.GetComponent<BodyPart>();
@@ -106,6 +110,7 @@ namespace Mechs
             }
             _startedConstruction = false;
             buildPoint = _originalBuildPoint;
+            onConstructionFinished?.Invoke();
         }
 
         public PartsOfMech? GetNextBodyPart()
