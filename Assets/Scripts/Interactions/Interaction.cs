@@ -174,7 +174,7 @@ namespace Interactions
         
             if (interactableObject.CompareTag("Interactable"))
             {
-                interactableObject.GetComponent<Interactable>().InteractWithObject();
+                interactableObject.GetComponent<IInteractable>().Use();
             }
             else if (interactableObject.CompareTag("Customer"))
             {

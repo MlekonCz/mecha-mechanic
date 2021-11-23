@@ -1,17 +1,21 @@
 ﻿using System;
-using System.Collections;
 using Core;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 namespace UI
 {
+    public enum CanvasEnum
+    {
+        menuUI,
+        gameUI,
+        computerUI,
+    }
     public class UIManager : MonoBehaviour
     {
-        [SerializeField] private GameObject _menuUi;
-        [SerializeField] private GameObject _gameUi;
+        [SerializeField] private GameObject[] Canvases;
 
+        private CanvasEnum lastCanvas = CanvasEnum.menuUI;
         private MainMenuManager _mainMenuManager = default;
         private bool _initialized = false;
         private bool _gameIsRunning = false;
@@ -29,6 +33,12 @@ namespace UI
             InitMenuCanvas();
         }
 
+        public void ActivateCanvas(CanvasEnum newCanvas)
+        {
+            Canvases[(int) lastCanvas].SetActive(false);
+            lastCanvas = newCanvas;
+            Canvases[(int) newCanvas].SetActive(true);
+        }
         private void SetupUIManager()
         {
             _mainMenuManager.OnGameStarted += InitGameCanvas;
@@ -36,16 +46,17 @@ namespace UI
         }
         private void InitGameCanvas()
         {
-            _menuUi.SetActive(false);
-            _gameUi.SetActive(true);
+            Canvases[(int) CanvasEnum.menuUI].SetActive(false);
+            Canvases[(int) CanvasEnum.gameUI].SetActive(true);
+            lastCanvas = CanvasEnum.gameUI;
         }
 
         private void InitMenuCanvas()
         {
-            _gameUi.SetActive(false);
-            _menuUi.SetActive(true);
+            Canvases[(int) CanvasEnum.gameUI].SetActive(false);
+            Canvases[(int) CanvasEnum.menuUI].SetActive(true);
+            lastCanvas = CanvasEnum.menuUI;
         }
-
         private void Update()
         {
             HandlePauseScreen();
@@ -53,9 +64,10 @@ namespace UI
 
         private void HandlePauseScreen()
         {
+            return;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (!_menuUi.activeSelf)
+                if (!Canvases[0].activeSelf)
                 {
                     InitMenuCanvas();
                 }
@@ -65,5 +77,6 @@ namespace UI
                 }
             }
         }
+
     }
 }

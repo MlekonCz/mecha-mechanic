@@ -1,5 +1,7 @@
 using System;
+using Scenes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core
 {
@@ -18,7 +20,8 @@ namespace Core
         public void StartGame()
         {
             OnGameStarted?.Invoke();
-            _loader.LoadScene(ScenesIndexes.GameScene, ScenesIndexes.MainMenu);
+            int buildIndex = SceneManager.GetActiveScene().buildIndex;
+            _loader.LoadScene(ScenesIndexes.GameScene, buildIndex);
             
         }
 

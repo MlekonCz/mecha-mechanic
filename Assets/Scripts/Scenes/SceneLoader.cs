@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Core
+namespace Scenes
 {
     public enum ScenesIndexes
     {
@@ -19,10 +18,10 @@ namespace Core
             SceneManager.LoadSceneAsync((int) ScenesIndexes.UIScene, LoadSceneMode.Additive);
         }
 
-        public void LoadScene(ScenesIndexes scene, ScenesIndexes lastScene)
+        public void LoadScene(ScenesIndexes newScene, int lastScene)
         {
-            SceneManager.UnloadSceneAsync((int) lastScene);
-            SceneManager.LoadSceneAsync((int) scene, LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync(lastScene);
+            SceneManager.LoadSceneAsync((int) newScene, LoadSceneMode.Additive);
             
         }
 

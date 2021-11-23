@@ -32,10 +32,10 @@ namespace Currency
 
       private void Update()
       {
-         if (_timeManager.currentDay >= 8 && gameWon == false)
-         {
-            loseUI.SetActive(true);
-         }
+         // if (_timeManager.currentDay >= 8 && gameWon == false)
+         // {
+         //    loseUI.SetActive(true);
+         // }
       }
 
       public void BuyUpgrade()

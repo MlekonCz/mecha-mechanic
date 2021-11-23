@@ -1,11 +1,16 @@
 using System;
+using Interactions;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Currency
 {
-    public class Computer : MonoBehaviour
+    public class ComputerCanvas : MonoBehaviour
     {
+        private Computer _computer;
+        private UIManager _uiManager;
+        
         [SerializeField] private GameObject computerScreen = null;
         [SerializeField] private KeyCode keyCodeToLeave = KeyCode.Q;
         private Color orange;
@@ -15,35 +20,37 @@ namespace Currency
         [SerializeField] private GameObject ShopScreen;
 
         [Header("Booleans")]
-        private bool isUsed = false;
         private bool isActiveWindow = false;
 
         private void Start()
         {
-            computerScreen.SetActive(false);
+            _uiManager = FindObjectOfType<UIManager>();
+        }
+
+        private void OnEnable()
+        {
+            _computer = FindObjectOfType<Computer>();
+            _computer.onComputerAccess += AccessComputer;
         }
 
         private void Update()
         {
-            if (!isUsed){return;}
+           
             if (Input.GetKeyDown(keyCodeToLeave))
             {
                 CloseComputer();
             }
         }
-        public void CloseComputer()
+        private void CloseComputer()
         {
-            computerScreen.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            isUsed = false;
+            _uiManager.ActivateCanvas(CanvasEnum.gameUI);
+          
         }
-        public void AccessComputer()
+        private void AccessComputer()
         {
-            isUsed = true;
-            computerScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
-        
 
     }
 }
