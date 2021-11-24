@@ -1,7 +1,9 @@
-﻿namespace Interactions
+﻿using UnityEngine;
+
+namespace Interactions
 {
     public interface IInteractable
     {
-        void Use();
+        void Interact();
     }
 }

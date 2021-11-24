@@ -10,6 +10,7 @@ namespace UI
         menuUI,
         gameUI,
         computerUI,
+        customerUI,
     }
     public class UIManager : MonoBehaviour
     {

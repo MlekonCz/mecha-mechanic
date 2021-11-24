@@ -8,6 +8,10 @@ namespace Customers
 {
     public class CustomerSpawner : MonoBehaviour
     {
+     /// <summary>
+     /// Change this script later into separate scripts each for 1 purpose
+     /// </summary>
+     /// 
         [SerializeField] private GameObject customerPrefab;
         [SerializeField] private List<ShoppingPath> customerPaths;
         [SerializeField] private List<GameObject> customerDialogues; // add later dialogues
@@ -22,19 +26,18 @@ namespace Customers
             if (customerPaths.Count == 0 ){return;}
             if (Time.time > _timeToSpawnNextCustomer + _timeSinceLastSpawn)
             {
-                _timeToSpawnNextCustomer = Random.Range(timeBetweenCustomersBottomLimit, timeBetweenCustomersUpperLimit);
-                GameObject instance = Instantiate(customerPrefab, spawnLocation);
-                instance.transform.parent = transform;
-                Debug.Log("Spawn Customer");
-                _timeSinceLastSpawn = Time.time;
+                SpawnCustomer();
             }
         }
 
 
         void SpawnCustomer()
         {
-           
-            
+            _timeToSpawnNextCustomer = Random.Range(timeBetweenCustomersBottomLimit, timeBetweenCustomersUpperLimit);
+            GameObject instance = Instantiate(customerPrefab, spawnLocation);
+            instance.transform.parent = transform;
+            Debug.Log("Spawn Customer");
+            _timeSinceLastSpawn = Time.time;
         }
 
         public ShoppingPath GetPath()

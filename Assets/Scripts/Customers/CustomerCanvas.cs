@@ -8,6 +8,10 @@ namespace Customers
 {
     public class CustomerCanvas : MonoBehaviour
     {
+        /// <summary>
+        /// Going to rewrite whole customer logic later so I wont do anything here yet
+        /// </summary>
+        
         [SerializeField] private GameObject canvas = null;
         [SerializeField] private TMP_Text customerBasicText = null;
         [SerializeField] private TMP_Text customerText;

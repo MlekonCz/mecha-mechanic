@@ -74,7 +74,7 @@ namespace CMF
 			Cursor.lockState = CursorLockMode.Locked;
 		}
 
-		void Update()
+		void LateUpdate()
 		{
 			HandleCameraRotation();
 		}

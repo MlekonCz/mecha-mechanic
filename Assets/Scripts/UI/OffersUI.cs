@@ -7,6 +7,9 @@ namespace UI
 {
     public class OffersUI : MonoBehaviour
     {
+        /// <summary>
+        /// Going to rewrite whole customer logic later so I wont do anything here yet
+        /// </summary>
         [SerializeField] private GameObject offerUI;
         
         [Header("Offer 1")]

@@ -10,6 +10,12 @@ namespace Customers
 {
     public class Customer : MonoBehaviour
     {
+        
+        /// <summary>
+        /// Change this script later into separate scripts each for 1 purpose
+        /// </summary>
+        
+        
         [Header("Movement")]
         [SerializeField] private ShoppingPath shoppingPath;
         [SerializeField] private float speed = 5f;

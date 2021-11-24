@@ -13,11 +13,11 @@ namespace Interactions
             _uiManager = FindObjectOfType<UIManager>();
         }
 
-        public void Use()
+        public void Interact()
         {
             _uiManager.ActivateCanvas(CanvasEnum.computerUI);
             onComputerAccess?.Invoke();
         }
-        
+
     }
 }
