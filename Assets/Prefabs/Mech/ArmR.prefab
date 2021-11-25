@@ -296,7 +296,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4742779940955940568}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
@@ -643,7 +643,6 @@ GameObject:
   - component: {fileID: 6378481966326478623}
   - component: {fileID: 3707452506494183064}
   - component: {fileID: 4877941924851438966}
-  - component: {fileID: 6577140974115240449}
   - component: {fileID: 519588723391912754}
   - component: {fileID: 7992880342123385474}
   m_Layer: 6
@@ -783,22 +782,6 @@ MonoBehaviour:
   _interactionButton: 101
   bodyPart: 2
   bodyPartConfig: {fileID: 11400000, guid: 4d38cc8118cbdd54e8580e67aa6ec2e0, type: 2}
---- !u!114 &6577140974115240449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7755478320014027817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5f068bf7ec3643a73ad8acc02b993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyPart: {fileID: 3707452506494183064}
-  informationCanvas: {fileID: 4742779940955940568}
-  attributes: {fileID: 3529268054225528291}
-  distanceToDisplayInformation: 10
 --- !u!54 &519588723391912754
 Rigidbody:
   m_ObjectHideFlags: 0

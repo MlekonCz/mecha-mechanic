@@ -1,8 +1,9 @@
 using System;
+using Interactions;
 using UI;
 using UnityEngine;
 
-namespace Interactions
+namespace Store
 {
     public class Computer : MonoBehaviour, IInteractable
     {

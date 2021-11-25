@@ -1,5 +1,6 @@
 using System;
 using Interactions;
+using Store;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,6 @@ namespace Currency
         
         [SerializeField] private GameObject computerScreen = null;
         [SerializeField] private KeyCode keyCodeToLeave = KeyCode.Q;
-        private Color orange;
 
         [Header("Tabs")] 
         [SerializeField] private GameObject MainScreen;

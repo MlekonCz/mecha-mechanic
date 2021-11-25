@@ -1,7 +1,6 @@
-﻿using Mechs;
+﻿using Mechsě;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Interactions
 {

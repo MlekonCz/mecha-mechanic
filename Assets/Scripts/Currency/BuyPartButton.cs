@@ -12,14 +12,14 @@ namespace Currency
         [SerializeField] private GameObject notEnoughMoneyText;
         private PlayerMoney _playerMoney;
         private float _cost;
-
+        
         private void Start()
         {
             
             _cost = bodyPart.cost;
             buyText.text ="Buy for " + _cost.ToString("F1") + " $";
         }
-
+        
         public void BuyPart()
         {
             _playerMoney = FindObjectOfType<PlayerMoney>();

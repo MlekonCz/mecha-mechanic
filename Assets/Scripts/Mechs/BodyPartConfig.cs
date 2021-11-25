@@ -36,19 +36,11 @@ namespace Mechs
         
         public Transform GetNextBuildPosition()
         {
-            // Try get component zpusob
             if (_bodyPart.TryGetComponent(out BodyPart bodyPart))
             {
                 return bodyPart.NextBuildingPosition;
             }
             return null;
-            
-            //  Stary zpusob
-            // if (_bodyPart.GetComponent<BodyPart>().NextBuildingPosition == null)
-            // {
-            //     return null;
-            // }
-            // return  _bodyPart.GetComponent<BodyPart>().NextBuildingPosition;
         }
         
         

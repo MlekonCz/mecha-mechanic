@@ -44,7 +44,7 @@ namespace Interactions
             }
         }
 
-        private bool CheckingForPickableObject() // control if it is pickable or customer or interactable
+        private bool CheckingForPickableObject()
         {
             RaycastHit hit; 
             if (Physics.Raycast(_mainCamera.position + _mainCamera.forward, _mainCamera.forward,
@@ -62,7 +62,7 @@ namespace Interactions
             return false;
         }
         
-        private void Interact()
+        private void Interact() 
         {
             if (_interactableObject == null){return;}
             _interactableObject.GetComponent<IInteractable>().Interact();

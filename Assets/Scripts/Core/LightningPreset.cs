@@ -10,6 +10,4 @@ public class LightningPreset : ScriptableObject
     public Gradient ambientColor;
     public Gradient directionalColor;
     public Material[] skyboxes;
-
-
 }

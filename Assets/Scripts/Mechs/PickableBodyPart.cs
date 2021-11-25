@@ -4,7 +4,7 @@ using Mechs;
 using UI;
 using UnityEngine;
 
-namespace Mechs
+namespace Mechsě
 {
     public class PickableBodyPart : MonoBehaviour
     {
@@ -63,13 +63,13 @@ namespace Mechs
         {
             if (!other.gameObject.CompareTag("RobotFrame")){return;}
             
-            foreach (INextPart part in other.GetComponents<INextPart>())
-            {
-                if (part.GetNextBodyPart() == bodyPart)
-                {
-                    _canBuild = true;
-                }
-            }
+            // foreach (INextPart part in other.GetComponents<INextPart>())
+            // {
+            //     if (part.GetNextBodyPart() == bodyPart)
+            //     {
+            //         _canBuild = true;
+            //     }
+            // }
             if (!_canBuild){return;}
             
             FindObjectOfType<CursorUI>().CanBuild(true);
@@ -78,8 +78,8 @@ namespace Mechs
             
             FindObjectOfType<CursorUI>().CanBuild(false);
             
-            var mechFrame = other.gameObject.GetComponent<MechFrameBuilder>();
-            mechFrame.InstallBodyPart(bodyPartConfig);
+            // var mechFrame = other.gameObject.GetComponent<MechFrameBuilder>();
+            // mechFrame.InstallBodyPart(bodyPartConfig);
             Destroy(gameObject);
             
         }

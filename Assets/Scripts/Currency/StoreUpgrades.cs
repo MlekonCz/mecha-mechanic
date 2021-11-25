@@ -30,14 +30,6 @@ namespace Currency
          loseUI.SetActive(false);
       }
 
-      private void Update()
-      {
-         // if (_timeManager.currentDay >= 8 && gameWon == false)
-         // {
-         //    loseUI.SetActive(true);
-         // }
-      }
-
       public void BuyUpgrade()
       {
          _playerMoney = FindObjectOfType<PlayerMoney>();
