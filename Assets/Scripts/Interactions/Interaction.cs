@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Interactions
@@ -7,6 +8,7 @@ namespace Interactions
     public class Interaction : MonoBehaviour
     {
         [SerializeField] private KeyCode _interactionButton;
+        [SerializeField] private float liftingPower = 10f;
         [SerializeField] private Transform _mainCamera;
         [SerializeField] private float _interactionDistance;
         [SerializeField] private LayerMask _layerMaskToIgnore;
@@ -38,6 +40,8 @@ namespace Interactions
                 }
                 else
                 {
+                    if (!_interactableObject.GetComponent<IPickable>().PickUp(liftingPower)){return;}
+
                     _pickedUpObject = false;
                     _objectPicker.HandlePickUp(_interactableObject);
                 }

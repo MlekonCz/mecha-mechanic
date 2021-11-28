@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 8629115465836144399}
   - component: {fileID: 237295983}
   m_Layer: 0
-  m_Name: FirstPersonWalker
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

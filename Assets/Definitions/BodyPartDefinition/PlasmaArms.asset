@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: PlasmaArms
   m_EditorClassIdentifier: 
   bodyPrefab: {fileID: 5901701897369700615, guid: be325dfe2c3917448bb026931992eb5a, type: 3}
-  rightArmPrefab: {fileID: 5901701897369700615, guid: 3404d9109abc6804091ca248c5da93b9, type: 3}
   mechPart: 2
   attribute: 3
-  isArm: 1
   cost: 30
   partsToDeliver: 2

@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using Mechs;
 using UI;
 using UnityEngine;
 
-namespace Mechsě
+namespace MechParts
 {
     public class PickableBodyPart : MonoBehaviour
     {
@@ -17,7 +14,7 @@ namespace Mechsě
         
         
         [SerializeField] private PartsOfMech bodyPart;
-        [SerializeField] private BodyPartConfig bodyPartConfig;
+        [SerializeField] private BodyPartDefinition _bodyPartDefinition;
         
         private void Start()
         {

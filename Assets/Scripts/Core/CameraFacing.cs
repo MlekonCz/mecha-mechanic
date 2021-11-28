@@ -8,5 +8,6 @@ namespace Core
         {
             if (Camera.main is { }) transform.forward = Camera.main.transform.forward;
         }
+        
     }
 }

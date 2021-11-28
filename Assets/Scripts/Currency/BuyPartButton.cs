@@ -1,4 +1,4 @@
-using Mechs;
+using MechParts;
 using TMPro;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ namespace Currency
 {
     public class BuyPartButton : MonoBehaviour
     {
-        [SerializeField] private BodyPartConfig bodyPart = null;
+        [SerializeField] private BodyPartDefinition bodyPart = null;
         [SerializeField] private TMP_Text buyText;
         [SerializeField] private Transform deliveryLocation;
         [SerializeField] private GameObject notEnoughMoneyText;
@@ -15,7 +15,6 @@ namespace Currency
         
         private void Start()
         {
-            
             _cost = bodyPart.cost;
             buyText.text ="Buy for " + _cost.ToString("F1") + " $";
         }

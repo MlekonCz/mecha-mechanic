@@ -1,9 +1,10 @@
-﻿namespace Mechs
+﻿namespace MechParts
 {
     public enum PartsOfMech
     {
         Leg,
         Torso,
-        Arms
+        LeftArm,
+        RightArm
     }
 }

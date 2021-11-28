@@ -1,6 +1,7 @@
-﻿using Mechsě;
+﻿using MechParts;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Interactions
 {
@@ -10,7 +11,8 @@ namespace Interactions
         [SerializeField] Transform mainCamera;
 
         [Title("Interaction")]
-        [SerializeField] private float _interactionDistance = 2.5f;
+        
+        [SerializeField] private float _objectsDistanceFromPlayer = 2.5f;
         [SerializeField] private float _pickedUpDrag = 10f;
         [SerializeField] private float _pickupHoldForce = 20f;
 
@@ -42,15 +44,13 @@ namespace Interactions
             _pickedUpObject.useGravity = false; 
             _pickedUpObject.drag = _pickedUpDrag; 
             _pickedUpObject.angularDrag = _pickedUpDrag;
-
-            _pickedUpObject.GetComponent<PickableBodyPart>().ActivateObject();
         }
         
         private void UpdatePickedUpObject()
         {
             if (_pickedUpObject != null)
             {
-                Vector3 target = mainCamera.position + mainCamera.forward * _interactionDistance;
+                Vector3 target = mainCamera.position + mainCamera.forward * _objectsDistanceFromPlayer;
                 Vector3 dir = target - _pickedUpObject.position;
                 
 

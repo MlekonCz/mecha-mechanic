@@ -1,4 +1,4 @@
-﻿namespace Mechs
+﻿namespace MechParts
 {
     public enum AttributesOfParts
     {
