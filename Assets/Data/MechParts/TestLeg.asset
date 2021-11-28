@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1347880ef88cc449a939e41d052e21, type: 3}
-  m_Name: PlasmaArms
+  m_Script: {fileID: 11500000, guid: b9fee789242648b44976c398ed473b91, type: 3}
+  m_Name: TestLeg
   m_EditorClassIdentifier: 
-  bodyPrefab: {fileID: 5901701897369700615, guid: be325dfe2c3917448bb026931992eb5a, type: 3}
-  mechPart: 2
-  attribute: 3
-  cost: 30
-  partsToDeliver: 2
+  bodyPrefab: {fileID: 0}
+  mechPart: 0
+  attribute: 0
+  itemTier: 0
+  weight: 10
+  cost: 50
+  partsToDeliver: 1

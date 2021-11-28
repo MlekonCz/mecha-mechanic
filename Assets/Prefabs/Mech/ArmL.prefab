@@ -975,9 +975,6 @@ GameObject:
   - component: {fileID: 5904210842161745597}
   - component: {fileID: 5795016261905461841}
   - component: {fileID: 2203008335836472095}
-  - component: {fileID: 881972756876708702}
-  - component: {fileID: 2163695573958167404}
-  - component: {fileID: 7317973406664474955}
   - component: {fileID: -7676515915800240180}
   - component: {fileID: 170069118690412726}
   m_Layer: 6
@@ -1088,51 +1085,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.4697423, y: -2.1798298, z: -0.07406095}
     m_Extent: {x: 2.7315574, y: 2.8281095, z: 0.72982776}
   m_DirtyAABB: 0
---- !u!114 &881972756876708702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5901701897369700615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f04054777b3b2aa47a9b760e7b164a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bodyPartConfig: {fileID: 11400000, guid: 4d38cc8118cbdd54e8580e67aa6ec2e0, type: 2}
-  nextBuildingPosition: {fileID: 0}
---- !u!114 &2163695573958167404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5901701897369700615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3dfb04e89a6769418a15db381e6137f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionButton: 101
-  bodyPart: 2
-  bodyPartConfig: {fileID: 11400000, guid: 4d38cc8118cbdd54e8580e67aa6ec2e0, type: 2}
---- !u!114 &7317973406664474955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5901701897369700615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f5f068bf7ec3643a73ad8acc02b993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyPart: {fileID: 881972756876708702}
-  informationCanvas: {fileID: 4135968445064535595}
-  attributes: {fileID: 6984918103797222771}
-  distanceToDisplayInformation: 10
 --- !u!54 &-7676515915800240180
 Rigidbody:
   m_ObjectHideFlags: 0

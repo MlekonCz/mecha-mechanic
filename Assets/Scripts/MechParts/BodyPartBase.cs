@@ -3,33 +3,30 @@ using Interactions;
 using MechPartStates;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MechParts
 {
     
     public abstract class BodyPartBase : MonoBehaviour, IPickable
     {
-        [SerializeField] private BodyPartDefinition _bodyPartDefinition;
+        [FormerlySerializedAs("_bodyPartDefinition")] [SerializeField] private MechPartDefinition _mechPartDefinition;
         [SerializeField] private Transform nextBuildingPosition;
         public Transform NextBuildingPosition => nextBuildingPosition;
 
-        private StatesForMechParts _states;
+        public StatesForMechParts _states;
 
-        private void Start()
+        public virtual void Start()
         {
             _states = FindObjectOfType<StatesForMechParts>();
-            SetState();
         }
 
-        public virtual void SetState()
-        {
-            _states.DamageCables();
-        }
+        public abstract void SetState();
 
 
         public virtual bool PickUp(float liftingPower)
         {
-            if (_bodyPartDefinition.weight > liftingPower)
+            if (_mechPartDefinition.weight > liftingPower)
             {
                 Debug.Log("Item is too heavy to lift");
                 return false;

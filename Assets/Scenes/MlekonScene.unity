@@ -627,6 +627,64 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &167422381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167422384}
+  - component: {fileID: 167422383}
+  - component: {fileID: 167422382}
+  m_Layer: 0
+  m_Name: states
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &167422382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167422381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fd36afa05a46d991942c7c2f9dfdc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &167422383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167422381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb93f77512897964abbd1d2438979702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bodyPartDefinition: {fileID: 11400000, guid: 58a6846d39a4e6a40a8b768b578b26d3, type: 2}
+  nextBuildingPosition: {fileID: 0}
+--- !u!4 &167422384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167422381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &213783094
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,17 +1004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0f03ba3ab52514da481622b4e3f156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerPrefab: {fileID: 554563357882451275, guid: ba2497c3363d7494fa414a4cbc6c590c, type: 3}
-  customerPaths:
-  - {fileID: 1278396414}
-  - {fileID: 626975693}
-  - {fileID: 34832115}
-  customerDialogues: []
-  timeBetweenCustomersUpperLimit: 10
-  timeBetweenCustomersBottomLimit: 20
-  spawnLocation: {fileID: 1500677903}
-  _timeToSpawnNextCustomer: 0
-  _timeSinceLastSpawn: 0
 --- !u!1 &579868664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1146,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34176
+  m_Name: pb_Mesh27938
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

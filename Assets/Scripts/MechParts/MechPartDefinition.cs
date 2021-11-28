@@ -11,8 +11,8 @@ namespace MechParts
         T2,
         T3,
     }
-    [CreateAssetMenu(fileName = "BodyPartDefinition", menuName = "Body Parts/Make New Body Part", order = 0)]
-    public class BodyPartDefinition : ScriptableObject
+    [CreateAssetMenu(fileName = "BodyPartDefinition", menuName = "Definition/Make New Body Part", order = 0)]
+    public class MechPartDefinition : ScriptableObject
     {
         [SerializeField] private GameObject bodyPrefab = null; 
         [SerializeField] public PartsOfMech mechPart;

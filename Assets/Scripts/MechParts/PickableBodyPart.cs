@@ -1,5 +1,6 @@
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MechParts
 {
@@ -14,7 +15,7 @@ namespace MechParts
         
         
         [SerializeField] private PartsOfMech bodyPart;
-        [SerializeField] private BodyPartDefinition _bodyPartDefinition;
+        [FormerlySerializedAs("_bodyPartDefinition")] [SerializeField] private MechPartDefinition _mechPartDefinition;
         
         private void Start()
         {
