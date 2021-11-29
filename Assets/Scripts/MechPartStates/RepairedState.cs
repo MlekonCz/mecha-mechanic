@@ -10,7 +10,7 @@ namespace MechPartStates
             Debug.Log("Cables are Damaged");
         }
 
-        public void Dirty(ILocomotionContext context)
+        public void DirtyArmor(ILocomotionContext context)
         {
             context.SetState(new DirtyState());
             Debug.Log("Part is dirty");

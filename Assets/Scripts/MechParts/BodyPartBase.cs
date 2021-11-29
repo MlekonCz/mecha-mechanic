@@ -14,15 +14,17 @@ namespace MechParts
         [SerializeField] private Transform nextBuildingPosition;
         public Transform NextBuildingPosition => nextBuildingPosition;
 
-        public StatesForMechParts _states;
-
+        [FormerlySerializedAs("_states")] public StatesForMechParts _stateSetter;
         public virtual void Start()
         {
-            _states = FindObjectOfType<StatesForMechParts>();
+            _stateSetter = FindObjectOfType<StatesForMechParts>();
+            SetState();
         }
 
-        public abstract void SetState();
-
+        public virtual void SetState()
+        {
+            _stateSetter.SetRandomState();
+        }
 
         public virtual bool PickUp(float liftingPower)
         {

@@ -30,7 +30,7 @@ namespace Currency
                 Destroy(refuseTX, 2f);
                 return;
             }
-            _mechPart.DeliverPart(deliveryLocation);
+            // _mechPart.DeliverPart(deliveryLocation);
             _playerMoney.SetMoney(-_cost);
         }
 

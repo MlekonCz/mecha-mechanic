@@ -25,24 +25,5 @@ namespace MechParts
         [SerializeField] public float cost;
         [SerializeField] private int partsToDeliver = 1;
         
-        
-
-        
-        
-        public void DeliverPart(Transform deliveryLocation)
-        { 
-            if (partsToDeliver == 1)
-            {
-                _bodyPart = Instantiate(bodyPrefab, deliveryLocation.position, Quaternion.identity);
-            }
-            else
-            {
-                for (int i = 0; i < partsToDeliver; i++)
-                {
-                    _bodyPart = Instantiate(bodyPrefab, deliveryLocation.position, Quaternion.identity);
-                }
-            }
-        }
-        
     }
 }

@@ -669,8 +669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb93f77512897964abbd1d2438979702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bodyPartDefinition: {fileID: 11400000, guid: 58a6846d39a4e6a40a8b768b578b26d3, type: 2}
+  _mechPartDefinition: {fileID: 11400000, guid: 58a6846d39a4e6a40a8b768b578b26d3, type: 2}
   nextBuildingPosition: {fileID: 0}
+  _stateSetter: {fileID: 167422382}
 --- !u!4 &167422384
 Transform:
   m_ObjectHideFlags: 0

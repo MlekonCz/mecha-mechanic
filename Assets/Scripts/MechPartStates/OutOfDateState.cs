@@ -9,7 +9,7 @@ namespace MechPartStates
      
         }
 
-        public void Dirty(ILocomotionContext context)
+        public void DirtyArmor(ILocomotionContext context)
         {
           
         }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BackgroundSong
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 37c0cbea157dd574e8e75eecd3bd016f, type: 3}
-  volume: 1
-  volumeVariation: 0.05
+  volume: 0.389
+  volumeVariation: 0.015
   pitch: 1
   pitchVariation: 0.2

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dc19e2aacf4587a38dc582253e307f, type: 3}
   m_Name: PlaceHolder 1
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 7341ba07f02fa6941b16a463ddd73f99, type: 3}
+  clip: {fileID: 8300000, guid: 6bb2130d030e9ae4e816a0887341d766, type: 3}
   volume: 1
   volumeVariation: 0.05
   pitch: 1
