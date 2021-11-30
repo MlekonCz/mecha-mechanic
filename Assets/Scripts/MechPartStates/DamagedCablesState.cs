@@ -25,7 +25,7 @@ namespace MechPartStates
            
         }
 
-        public void Repaired(ILocomotionContext context)
+        public void Repaired(ILocomotionContext context, GameObject user)
         {
            context.SetState(new RepairedState());
            Debug.Log("Part is repaired");

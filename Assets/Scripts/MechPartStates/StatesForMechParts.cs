@@ -15,7 +15,7 @@ namespace MechPartStates
         void DirtyArmor(ILocomotionContext context);
         void OutOfDateSystem(ILocomotionContext context);
         void DamagedArmor(ILocomotionContext context);
-        void Repaired(ILocomotionContext context);
+        void Repaired(ILocomotionContext context,GameObject user);
     }
     public class StatesForMechParts : MonoBehaviour, ILocomotionContext
     {
@@ -25,6 +25,11 @@ namespace MechPartStates
         private Action[] stateArray;
 
         private void Start()
+        {
+         UpdateStateList();  
+        }
+
+       private void UpdateStateList()
         {
             stateList.Add(DamageCables);
             stateList.Add(MakePartDirty);
@@ -47,7 +52,7 @@ namespace MechPartStates
     
         public void DamageArmor() => currentState.DamagedArmor(this);
         
-        public void Repair() => currentState.Repaired(this);
+        public void Repair() => currentState.Repaired(this, gameObject);
         void ILocomotionContext.SetState(IDamagedState newState)
         {
             currentState = newState;

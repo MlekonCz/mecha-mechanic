@@ -61,7 +61,7 @@ namespace Interactions
         {
             if (_pickedUpObject != null)
             {
-                _pickedUpObject.GetComponent<PickableBodyPart>().ActivateObject(); //change later with more Pickables
+                _pickedUpObject.GetComponent<BodyPartBase>().DropItem();
 
                 _pickedUpObject.useGravity = true;
                 _pickedUpObject.drag = 0;

@@ -430,6 +430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionButton: 101
+  _insertKey: 102
+  liftingPower: 10
   _mainCamera: {fileID: 3197294841644538748}
   _interactionDistance: 5
   _layerMaskToIgnore:
@@ -448,8 +450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 3197294841644538748}
-  _interactionDistance: 3
-  _pickedUpDrag: 15
+  _objectsDistanceFromPlayer: 2.5
+  _pickedUpDrag: 20
   _pickupHoldForce: 20
 --- !u!114 &237295983
 MonoBehaviour:

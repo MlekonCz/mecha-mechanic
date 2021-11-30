@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using Buildings;
+using MechParts;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,25 +9,28 @@ namespace Interactions
 {
     public class Interaction : MonoBehaviour
     {
-        [SerializeField] private KeyCode _interactionButton;
+        [SerializeField] private KeyCode _interactionButton = KeyCode.E;
+        [SerializeField] private KeyCode _insertKey = KeyCode.F;
         [SerializeField] private float liftingPower = 10f;
         [SerializeField] private Transform _mainCamera;
         [SerializeField] private float _interactionDistance;
         [SerializeField] private LayerMask _layerMaskToIgnore;
 
         private readonly string[] _interactionTags = {"Interactable", "Pickable", "Customer"};
+        private IItemInserter _itemInserter = null;
         private GameObject _interactableObject;
         private ObjectPicker _objectPicker;
         private bool _pickedUpObject = false;
-
-        private void Start()
+        private bool itemCanBeInserted = false;
+        
+        private void Awake()
         {
             _objectPicker = GetComponent<ObjectPicker>();
         }
-
         private void Update()
         {
             StartInteraction();
+            InsertItem();
         }
         private void StartInteraction()
         {
@@ -35,17 +40,32 @@ namespace Interactions
                 {
                     if (!CheckingForPickableObject()){return;}
 
-                   _objectPicker.HandlePickUp(_interactableObject);
-                    _pickedUpObject = true;
+                    SubscribeToItem(); 
+                    HandlePickUp(true);
                 }
                 else
                 {
                     if (!_interactableObject.GetComponent<IPickable>().PickUp(liftingPower)){return;}
 
-                    _pickedUpObject = false;
-                    _objectPicker.HandlePickUp(_interactableObject);
+                    UnSubscribeItem();
+                    HandlePickUp(false);
                 }
             }
+        }
+        void InsertItem()
+        {
+            if (!itemCanBeInserted){return;}
+            if (!Input.GetKeyDown(_insertKey)){return;}
+            
+            if(_itemInserter.InsertItem(_interactableObject))
+            {
+                HandlePickUp(false);
+            }
+        }
+        void HandlePickUp(bool pickItUp)
+        {
+            _objectPicker.HandlePickUp(_interactableObject);
+            _pickedUpObject = pickItUp;
         }
 
         private bool CheckingForPickableObject()
@@ -70,6 +90,27 @@ namespace Interactions
         {
             if (_interactableObject == null){return;}
             _interactableObject.GetComponent<IInteractable>().Interact();
+        }
+
+        void SubscribeToItem()
+        {
+            _interactableObject.GetComponent<BodyPartBase>().canInsert += CanInsert;
+            _interactableObject.GetComponent<BodyPartBase>().cantInsert += CantInsert;
+        }
+        void UnSubscribeItem()
+        {
+            
+        }
+
+        void CanInsert(IItemInserter itemInserter)
+        {
+            _itemInserter = itemInserter;
+            itemCanBeInserted = true;
+        }
+
+        void CantInsert()
+        {
+            itemCanBeInserted = false;
         }
     }
 }

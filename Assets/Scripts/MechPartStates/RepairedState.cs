@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MechParts;
+using UnityEngine;
 
 namespace MechPartStates
 {
@@ -28,9 +29,8 @@ namespace MechPartStates
             Debug.Log("Armor is Damaged");
         }
 
-        public void Repaired(ILocomotionContext context)
+        public void Repaired(ILocomotionContext context, GameObject user)
         {
-            
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Buildings;
 using Interactions;
 using MechPartStates;
 using Sirenix.OdinInspector;
@@ -7,23 +8,53 @@ using UnityEngine.Serialization;
 
 namespace MechParts
 {
-    
+    /// <summary>
+    /// Will decide later based on added features
+    /// if I will chang it back to normal class or keep it abstract,
+    /// </summary>
+   
     public abstract class BodyPartBase : MonoBehaviour, IPickable
     {
-        [FormerlySerializedAs("_bodyPartDefinition")] [SerializeField] private MechPartDefinition _mechPartDefinition;
+       [SerializeField] private MechPartDefinition _mechPartDefinition;
         [SerializeField] private Transform nextBuildingPosition;
-        public Transform NextBuildingPosition => nextBuildingPosition;
 
-        [FormerlySerializedAs("_states")] public StatesForMechParts _stateSetter;
-        public virtual void Start()
+        public delegate void CallBackType(IItemInserter inserter);
+        public event CallBackType canInsert;
+        public event Action cantInsert;
+        
+        public StatesForMechParts _stateSetter;
+        protected virtual void Start()
         {
             _stateSetter = FindObjectOfType<StatesForMechParts>();
             SetState();
         }
 
-        public virtual void SetState()
+        protected virtual void SetState()
         {
             _stateSetter.SetRandomState();
+        }
+
+        public virtual void DropItem()
+        {
+            
+        }
+
+        protected virtual void OnTriggerEnter(Collider other)
+        {
+            IItemInserter component;
+            if (other.gameObject.TryGetComponent(out component))
+            {
+                canInsert?.Invoke(component);
+            }
+        }
+
+        protected virtual void OnTriggerExit(Collider other)
+        {
+            IItemInserter component;
+            if (other.gameObject.TryGetComponent(out component))
+            {
+                cantInsert?.Invoke();
+            }
         }
 
         public virtual bool PickUp(float liftingPower)
