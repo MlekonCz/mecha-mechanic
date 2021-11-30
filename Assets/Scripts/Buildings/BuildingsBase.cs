@@ -2,10 +2,10 @@
 
 namespace Buildings
 {
-    public class BuildingsBase : MonoBehaviour
+    public abstract class BuildingsBase : MonoBehaviour, IItemInserter
     {
-       
-        
-        
+
+
+        public abstract bool InsertItem(GameObject interactedObject);
     }
 }
