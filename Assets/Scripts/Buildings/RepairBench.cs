@@ -1,5 +1,6 @@
 ﻿using System;
 using Cinemachine;
+using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -9,45 +10,19 @@ namespace Buildings
 {
     public class RepairBench : BuildingsBase
     {
-        private IItemInserter _itemInserterImplementation;
-        [SerializeField] private Transform repairPosition;
-        [SerializeField] private GameObject cmCamera;
-        private PlayableDirector _director;
-        [SerializeField] private TimelineAsset enterStation;
-        [SerializeField] private TimelineAsset leaveStation;
-        private bool stationIsBeingUsed = false;
-
-        private void Start()
-        {
-            _director = GetComponent<PlayableDirector>();
-        }
-
         public override bool InsertItem(GameObject interactedObject)
         {
-            AccessComponents(interactedObject);
+            ConfigureObject(interactedObject);
+            ActivateTimeline();
             return true;
         }
 
-        void AccessComponents(GameObject interactedObject)
+        protected override void ConfigureObject(GameObject interactedObject)
         {
-            _director.playableAsset = enterStation;
-            _director.Play();
-            cmCamera.SetActive(true);
-            interactedObject.transform.position = repairPosition.position;
-            interactedObject.transform.rotation = repairPosition.rotation;
-            interactedObject.GetComponent<Rigidbody>().isKinematic = true;
+            base.ConfigureObject(interactedObject);
             interactedObject.GetComponent<Animator>().SetBool("isInRepairStation",true);
-            stationIsBeingUsed = true;
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Q) && stationIsBeingUsed)
-            {
-                _director.playableAsset = leaveStation;
-                _director.Play();
-                stationIsBeingUsed = false;
-            }
-        }
+        
+        
     }
 }
