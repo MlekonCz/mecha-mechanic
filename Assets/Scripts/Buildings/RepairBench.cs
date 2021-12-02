@@ -8,7 +8,7 @@ using UnityEngine.Timeline;
 
 namespace Buildings
 {
-    public class RepairBench : BuildingsBase
+    public class RepairBench : PartImprovementStructuresBase
     {
         public override bool InsertItem(GameObject interactedObject)
         {

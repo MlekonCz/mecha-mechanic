@@ -7,6 +7,10 @@ namespace Currency
 {
     public class BuyPartButton : MonoBehaviour
     {
+        /// <summary>
+        /// Not Refactored yet
+        /// </summary>
+        /// 
         [FormerlySerializedAs("bodyPart")] [SerializeField] private MechPartDefinition _mechPart = null;
         [SerializeField] private TMP_Text buyText;
         [SerializeField] private Transform deliveryLocation;

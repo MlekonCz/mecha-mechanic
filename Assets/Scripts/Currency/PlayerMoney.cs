@@ -4,7 +4,10 @@ using UI;
 using UnityEngine;
 
 namespace Currency
-{
+{ 
+    /// <summary>
+    /// Not Refactored yet
+    /// </summary>
     public class PlayerMoney : MonoBehaviour
     {
         private float _currentMoney = 0f;

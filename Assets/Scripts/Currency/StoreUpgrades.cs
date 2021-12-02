@@ -1,4 +1,5 @@
 using System;
+using Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,9 @@ using UnityEngine.UI;
 
 namespace Currency
 {
+   /// <summary>
+   /// Not Refactored yet
+   /// </summary>
    public class StoreUpgrades : MonoBehaviour
    {
       [SerializeField] private float upgradeCost = 250f;

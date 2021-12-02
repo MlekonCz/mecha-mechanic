@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    /// Not Refactored yet
+    /// </summary>
     public class MoneyUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text moneyText;

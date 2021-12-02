@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    /// Not Refactored yet
+    /// </summary>
     public class MechConstructionUI : MonoBehaviour
     {
         // private MechFrameSeller _mechFrame;

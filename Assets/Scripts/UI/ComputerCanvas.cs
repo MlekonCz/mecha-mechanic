@@ -1,12 +1,9 @@
-using System;
-using Interactions;
 using Store;
-using UI;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Currency
+namespace UI
 {
+    
     public class ComputerCanvas : MonoBehaviour
     {
         private Computer _computer;

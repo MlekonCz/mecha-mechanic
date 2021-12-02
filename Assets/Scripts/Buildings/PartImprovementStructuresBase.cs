@@ -5,7 +5,7 @@ using UnityEngine.Timeline;
 
 namespace Buildings
 {
-    public abstract class BuildingsBase : MonoBehaviour, IItemInserter
+    public abstract class PartImprovementStructuresBase : MonoBehaviour, IItemInserter
     {
         [TabGroup("Object Data")]
         [SerializeField] protected Transform repairPosition;

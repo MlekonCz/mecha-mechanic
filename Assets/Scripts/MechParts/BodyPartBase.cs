@@ -10,13 +10,13 @@ namespace MechParts
 {
     /// <summary>
     /// Will decide later based on added features
-    /// if I will chang it back to normal class or keep it abstract,
+    /// if I will change it back to normal class or keep it abstract,
     /// </summary>
    
     public abstract class BodyPartBase : MonoBehaviour, IPickable
     {
        [SerializeField] private MechPartDefinition _mechPartDefinition;
-        [SerializeField] private Transform nextBuildingPosition;
+       [SerializeField] private Transform nextBuildingPosition;
 
         public delegate void CallBackType(IItemInserter inserter);
         public event CallBackType canInsert;

@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    /// Not Refactored yet
+    /// </summary>
     public class CursorUI : MonoBehaviour
     {
         [SerializeField] private GameObject basicCursor = null;
