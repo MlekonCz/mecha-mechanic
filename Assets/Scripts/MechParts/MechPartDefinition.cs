@@ -14,15 +14,18 @@ namespace MechParts
     [CreateAssetMenu(fileName = "BodyPartDefinition", menuName = "Definition/Make New Body Part", order = 0)]
     public class MechPartDefinition : ScriptableObject
     {
-        [SerializeField] private GameObject bodyPrefab = null; 
-        [SerializeField] public PartsOfMech mechPart;
-        [SerializeField] public AttributesOfParts attribute;
-        [SerializeField] public ItemTier itemTier;
-        [SerializeField] public float weight = 5f;
+        [SerializeField] private GameObject bodyPrefab = null;
+
+        
+        public PartsOfMech mechPart => mechPart; 
+        public AttributesOfParts attribute => attribute; 
+        public ItemTier itemTier => itemTier;
+        
+        public float weight => weight;
         private GameObject _bodyPart;
 
         [Title("Shop Related")] 
-        [SerializeField] public float cost;
+        public float cost => cost;
         [SerializeField] private int partsToDeliver = 1;
         
     }

@@ -4,10 +4,16 @@ using UnityEngine;
 
 namespace CMF
 {
+	/// <summary>
+	/// Imported Asset
+	/// </summary>
+	
     //A very simplified controller script;
 	//This script is an example of a very simple walker controller that covers only the basics of character movement;
     public class SimpleWalkerController : Controller
     {
+	    public bool _lockedMovement = false;
+	    
         private Mover mover;
         float currentVerticalSpeed = 0f;
         bool isGrounded;
@@ -31,6 +37,12 @@ namespace CMF
 
         void FixedUpdate()
         {
+	        if (_lockedMovement)
+	        {
+		        mover.SetVelocity(Vector3.zero);
+		        return;
+	        }
+	        
             //Run initial mover ground check;
             mover.CheckForGround();
 
@@ -77,7 +89,7 @@ namespace CMF
 
         private Vector3 CalculateMovementDirection()
         {
-            //If no character input script is attached to this object, return no input;
+	        //If no character input script is attached to this object, return no input;
 			if(characterInput == null)
 				return Vector3.zero;
 

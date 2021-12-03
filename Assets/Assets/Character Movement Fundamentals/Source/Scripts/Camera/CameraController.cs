@@ -6,8 +6,10 @@ namespace CMF
 {
 	//This script rotates a gameobject based on user input.
 	//Rotation around the x-axis (vertical) can be clamped/limited by setting 'upperVerticalLimit' and 'lowerVerticalLimit'.
-	public class CameraController : MonoBehaviour {
+	public class CameraController : MonoBehaviour
+	{
 
+		public bool _lockedCamera = false;
 		//Current rotation values (in degrees);
 		float currentXAngle = 0f;
 		float currentYAngle = 0f;
@@ -76,6 +78,7 @@ namespace CMF
 
 		void LateUpdate()
 		{
+			if (_lockedCamera == true){return;}
 			HandleCameraRotation();
 		}
 
@@ -83,7 +86,6 @@ namespace CMF
 		//This method can be overridden in classes derived from this base class to modify camera behaviour;
 		protected virtual void HandleCameraRotation()
 		{
-			if (Cursor.lockState == CursorLockMode.None) { return ;}
 			if(cameraInput == null)
 				return;
 

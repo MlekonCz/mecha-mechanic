@@ -1,3 +1,4 @@
+using System;
 using Store;
 using UnityEngine;
 
@@ -27,7 +28,6 @@ namespace UI
         private void OnEnable()
         {
             _computer = FindObjectOfType<Computer>();
-            _computer.onComputerAccess += AccessComputer;
         }
 
         private void Update()
@@ -40,13 +40,8 @@ namespace UI
         }
         private void CloseComputer()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            _uiManager.ActivateCanvas(CanvasEnum.gameUI);
+            _uiManager.ActivateCanvas(CanvasEnum.gameUI, false);
           
-        }
-        private void AccessComputer()
-        {
-            Cursor.lockState = CursorLockMode.None;
         }
 
     }

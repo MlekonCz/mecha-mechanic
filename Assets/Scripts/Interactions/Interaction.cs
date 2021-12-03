@@ -11,15 +11,18 @@ namespace Interactions
     {
         [SerializeField] private KeyCode _interactionButton = KeyCode.E;
         [SerializeField] private KeyCode _insertKey = KeyCode.F;
-        [SerializeField] private float liftingPower = 10f;
+      
         [SerializeField] private Transform _mainCamera;
-        [SerializeField] private float _interactionDistance;
         [SerializeField] private LayerMask _layerMaskToIgnore;
-
-        private readonly string[] _interactionTags = {"Interactable", "Pickable", "Customer"};
+        
+        [SerializeField] private float _interactionDistance;
+        [SerializeField] private float liftingPower = 10f;
+        
         private IItemInserter _itemInserter = null;
         private GameObject _interactableObject;
         private ObjectPicker _objectPicker;
+        
+        private readonly string[] _interactionTags = {"Interactable", "Pickable", "Customer"};
         private bool _pickedUpObject = false;
         private bool itemCanBeInserted = false;
         

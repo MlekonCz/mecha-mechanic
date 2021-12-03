@@ -19,8 +19,16 @@ namespace Core
  
   [Header("TimeUI")] [SerializeField] private TMP_Text _timeUI;
   [SerializeField] private TMP_Text _daysUI;
- 
-  [SerializeField] public float currentDay = 1;
+
+  
+  private float currentDay = 1;
+
+  public float GetCurrentDay()
+  {
+   return currentDay;
+  }
+  
+
   private bool _newDay = false;
 
   public event Action onDayEnd;

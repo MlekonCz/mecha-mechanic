@@ -1,11 +1,16 @@
 ﻿using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
 namespace Buildings
 {
-    public abstract class PartImprovementStructuresBase : MonoBehaviour, IItemInserter
+    /// <summary>
+    /// Iam still working on this scripts and a lot of stuff here is not working properly yet
+    /// so keep that in mind. Thanks
+    /// </summary>
+    public abstract class PartImprovementStructuresBase : StructuresBase, IItemInserter
     {
         [TabGroup("Object Data")]
         [SerializeField] protected Transform repairPosition;
@@ -16,14 +21,14 @@ namespace Buildings
         [TabGroup("TimeLines")]
         [SerializeField] protected TimelineAsset leaveStation;
         
-        private bool stationIsBeingUsed = false;
         protected PlayableDirector _director;
-        
-        protected virtual void Start()
+
+        protected override void Start()
         {
+            base.Start();
             _director = GetComponent<PlayableDirector>();
         }
-        
+
         public abstract bool InsertItem(GameObject interactedObject);
         
        protected virtual void ConfigureObject(GameObject interactedObject)
@@ -31,7 +36,7 @@ namespace Buildings
             interactedObject.transform.position = repairPosition.position;
             interactedObject.transform.rotation = repairPosition.rotation;
             interactedObject.GetComponent<Rigidbody>().isKinematic = true;
-            stationIsBeingUsed = true;
+            isInteracting = true;
         }
        
        protected virtual void ActivateTimeline()
@@ -43,11 +48,12 @@ namespace Buildings
        
         protected virtual void Update() 
         {
-            if (Input.GetKeyDown(KeyCode.Q) && stationIsBeingUsed) // only for testing purpose for now
+            if (Input.GetKeyDown(KeyCode.Q) && isInteracting) // only for testing purpose for now
             {
+                FindObjectOfType<UIManager>().ActivateCanvas(CanvasEnum.gameUI,false);
                 _director.playableAsset = leaveStation;
                 _director.Play();
-                stationIsBeingUsed = false;
+                isInteracting = false;
             }
         }
     }

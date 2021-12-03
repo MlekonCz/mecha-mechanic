@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 356d5fb15eba51b46b1bf02ab26fc479
   - enabled: 1
-    path: Assets/Scenes/MlekonScene.unity
+    path: Assets/Scenes/GameScene.unity
     guid: 08f4355705cf08243b4d087d9fc7c05c
   m_configObjects: {}

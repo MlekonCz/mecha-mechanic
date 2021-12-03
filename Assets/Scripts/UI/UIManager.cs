@@ -5,12 +5,15 @@ using UnityEngine;
 
 namespace UI
 {
+    //to work properly needs to start testing game from MainMenu Scene
     public enum CanvasEnum
     {
         menuUI,
         gameUI,
         computerUI,
         customerUI,
+        StructureUI,
+        
     }
     public class UIManager : MonoBehaviour
     {
@@ -34,11 +37,13 @@ namespace UI
             InitMenuCanvas();
         }
 
-        public void ActivateCanvas(CanvasEnum newCanvas)
+        public void ActivateCanvas(CanvasEnum newCanvas, bool lockMouse)
         {
             Canvases[(int) lastCanvas].SetActive(false);
             lastCanvas = newCanvas;
             Canvases[(int) newCanvas].SetActive(true);
+
+            FindObjectOfType<GameManager>().LockMovement(lockMouse);
         }
         private void SetupUIManager()
         {
