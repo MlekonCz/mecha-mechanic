@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UI;
+using UnityEngine;
 
 namespace Buildings
 {
@@ -6,6 +7,7 @@ namespace Buildings
     {
         public override bool InsertItem(GameObject interactedObject)
         {
+            _uiManager.ActivateCanvas(CanvasEnum.StructureUI, true);
             ConfigureObject(interactedObject);
             ActivateTimeline();
             return true;

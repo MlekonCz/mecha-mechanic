@@ -1337,7 +1337,6 @@ MonoBehaviour:
   _timeSlower: 2
   _timeUI: {fileID: 1648293708}
   _daysUI: {fileID: 2039210508}
-  currentDay: 1
 --- !u!1 &250299657
 GameObject:
   m_ObjectHideFlags: 0
@@ -8936,15 +8935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01ecb1cbef05c74b8e2771f95b0d622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1177917253}
-  customerBasicText: {fileID: 923710286}
-  customerText: {fileID: 923710286}
-  customer: {fileID: 0}
-  acceptButton: {fileID: 2034178217}
-  sellButton: {fileID: 694465802}
-  refuseText: {fileID: 7278984687775133297, guid: c7ce410e5c5ef494d9528a20c04aa3bf, type: 3}
-  offer1: {fileID: 0}
-  offer2: {fileID: 0}
 --- !u!114 &1177917255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12498,7 +12488,6 @@ MonoBehaviour:
   _timeSlower: 2
   _timeUI: {fileID: 1648293708}
   _daysUI: {fileID: 2039210508}
-  currentDay: 1
 --- !u!4 &1721892609
 Transform:
   m_ObjectHideFlags: 0
@@ -13773,6 +13762,7 @@ MonoBehaviour:
   - {fileID: 1942761307}
   - {fileID: 1177917253}
   - {fileID: 1992097264}
+  lastCanvas: 1
 --- !u!4 &1920079044
 Transform:
   m_ObjectHideFlags: 0

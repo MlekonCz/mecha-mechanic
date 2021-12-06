@@ -393,7 +393,7 @@ namespace CMF
 					if(VectorMath.GetDotProduct(_movementVelocity, _horizontalMomentum.normalized) > 0f)
 						_movementVelocity = VectorMath.RemoveDotVector(_movementVelocity, _horizontalMomentum.normalized);
 					
-					//Lower air control slightly with a multiplier to add some 'weight' to any momentum applied to the controller;
+					//Lower air control slightly with a multiplier to add some '_weight' to any momentum applied to the controller;
 					float _airControlMultiplier = 0.25f;
 					_horizontalMomentum += _movementVelocity * Time.deltaTime * airControlRate * _airControlMultiplier;
 				}

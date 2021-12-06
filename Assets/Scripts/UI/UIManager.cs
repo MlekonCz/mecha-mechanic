@@ -19,7 +19,8 @@ namespace UI
     {
         [SerializeField] private GameObject[] Canvases;
 
-        private CanvasEnum lastCanvas = CanvasEnum.menuUI;
+        [SerializeField]private CanvasEnum lastCanvas = CanvasEnum.menuUI;
+        
         private MainMenuManager _mainMenuManager = default;
         private bool _initialized = false;
         private bool _gameIsRunning = false;

@@ -4,29 +4,29 @@ namespace MechPartStates
 {
     public class DirtyState : IDamagedState
     {
-        public void DamagedCables(ILocomotionContext context)
+        public void DamagedCables(ILocomotionContext context, GameObject item)
         {
      
         }
 
-        public void DirtyArmor(ILocomotionContext context)
+        public void DirtyArmor(ILocomotionContext context, GameObject item)
         {
           
         }
 
-        public void OutOfDateSystem(ILocomotionContext context)
+        public void OutOfDateSystem(ILocomotionContext context, GameObject item)
         {
            
         }
 
-        public void DamagedArmor(ILocomotionContext context)
+        public void DamagedArmor(ILocomotionContext context, GameObject item)
         {
            
         }
 
-        public void Repaired(ILocomotionContext context, GameObject user)
+        public void Repaired(ILocomotionContext context, GameObject item)
         {
-            context.SetState(new RepairedState());
+            context.SetState(new RepairedState(),item);
             Debug.Log("Part is repaired");
         }
     }

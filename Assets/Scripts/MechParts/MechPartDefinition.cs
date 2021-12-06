@@ -21,7 +21,7 @@ namespace MechParts
         public AttributesOfParts attribute => attribute; 
         public ItemTier itemTier => itemTier;
         
-        public float weight => weight;
+        public float _weight { get; }
         private GameObject _bodyPart;
 
         [Title("Shop Related")] 

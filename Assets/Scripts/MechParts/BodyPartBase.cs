@@ -31,7 +31,7 @@ namespace MechParts
 
         protected virtual void SetState()
         {
-            _stateSetter.SetRandomState();
+            _stateSetter.SetRandomState(gameObject);
         }
 
         public virtual void DropItem()
@@ -59,7 +59,7 @@ namespace MechParts
 
         public virtual bool PickUp(float liftingPower)
         {
-            if (_mechPartDefinition.weight > liftingPower)
+            if (_mechPartDefinition._weight > liftingPower)
             {
                 Debug.Log("Item is too heavy to lift");
                 return false;

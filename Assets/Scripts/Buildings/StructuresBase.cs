@@ -7,7 +7,7 @@ namespace Buildings
 {
     public abstract class StructuresBase : MonoBehaviour, IInteractable
     {
-        private UIManager _uiManager;
+        protected UIManager _uiManager;
         protected bool isInteracting = false;
         protected virtual void Start()
         {
@@ -19,5 +19,7 @@ namespace Buildings
             _uiManager.ActivateCanvas(CanvasEnum.StructureUI, true);
             isInteracting = true;
         }
+        
+        //add method for placing buildings
     }
 }

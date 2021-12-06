@@ -1,6 +1,8 @@
 ﻿using System;
 using CMF;
+using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core
 {
@@ -14,9 +16,17 @@ namespace Core
             _simpleWalkerController = FindObjectOfType<SimpleWalkerController>();
             _cameraController = FindObjectOfType<CameraController>();
         }
-
         public void LockMovement(bool lockMovement)
         {
+            if (lockMovement)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+           
             _simpleWalkerController._lockedMovement = lockMovement;
             _cameraController._lockedCamera = lockMovement;
         }
