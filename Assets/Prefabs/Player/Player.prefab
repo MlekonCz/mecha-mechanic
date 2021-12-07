@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9be22bce34010f43b12190b15d84b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lockedCamera: 0
   upperVerticalLimit: 60
   lowerVerticalLimit: 80
   cameraSpeed: 250
@@ -301,6 +302,7 @@ GameObject:
   - component: {fileID: 8629115465836144399}
   - component: {fileID: 237295983}
   - component: {fileID: 8726787427416645601}
+  - component: {fileID: 455289230}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -413,12 +415,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: 101
   _insertKey: 102
-  liftingPower: 10
   _mainCamera: {fileID: 3197294841644538748}
-  _interactionDistance: 5
   _layerMaskToIgnore:
     serializedVersion: 2
     m_Bits: 128
+  _interactionDistance: 5
+  liftingPower: 10
 --- !u!114 &8629115465836144399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,10 +461,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a380e2958019be4289ebe9d5bf5d649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lockedMovement: 0
   movementSpeed: 7
   jumpSpeed: 10
   gravity: 20
   cameraTransform: {fileID: 3188642422754512916}
+--- !u!114 &455289230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3194853690973961568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfc89b08d974bad90cd2ce60cd20651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCam: {fileID: 3177430959692829596}
+  _layerMaskToIgnore:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3233394416157982786
 GameObject:
   m_ObjectHideFlags: 0
