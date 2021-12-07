@@ -1,8 +1,5 @@
-﻿using System;
-using CMF;
-using UI;
+﻿using CMF;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Core
 {

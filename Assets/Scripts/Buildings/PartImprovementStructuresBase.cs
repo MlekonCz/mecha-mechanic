@@ -23,15 +23,30 @@ namespace Buildings
         
         protected PlayableDirector _director;
 
-        protected override void Start()
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
             _director = GetComponent<PlayableDirector>();
         }
 
         public abstract bool InsertItem(GameObject interactedObject);
         
-       protected virtual void ConfigureObject(GameObject interactedObject)
+        protected override void RemoveItem()
+        {
+            CloseUI();
+            _director.playableAsset = leaveStation;
+            _director.Play();
+            isInteracting = false;
+        }
+        protected override void CloseUI()
+        {
+            base.CloseUI();
+            _director.playableAsset = leaveStation;
+            _director.Play();
+            isInteracting = false;
+        }
+
+        protected virtual void ConfigureObject(GameObject interactedObject)
         {
             interactedObject.transform.position = repairPosition.position;
             interactedObject.transform.rotation = repairPosition.rotation;
@@ -50,7 +65,7 @@ namespace Buildings
         {
             if (Input.GetKeyDown(KeyCode.Q) && isInteracting) // only for testing purpose for now
             {
-                FindObjectOfType<UIManager>().ActivateCanvas(CanvasEnum.gameUI,false);
+                CloseUI();
                 _director.playableAsset = leaveStation;
                 _director.Play();
                 isInteracting = false;

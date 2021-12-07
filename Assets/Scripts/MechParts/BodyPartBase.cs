@@ -1,4 +1,4 @@
-using System;
+using System; 
 using Buildings;
 using Interactions;
 using MechPartStates;
@@ -29,6 +29,13 @@ namespace MechParts
             SetState();
         }
 
+        public string GetCurrentState()
+        {
+           return _stateSetter.GetCurrentState();
+        }
+
+        public abstract string GetPartName();
+        
         protected virtual void SetState()
         {
             _stateSetter.SetRandomState(gameObject);

@@ -30,6 +30,28 @@ namespace MechPartStates
          UpdateStateList();  
         }
 
+        public string GetCurrentState()
+        {
+            switch (currentState)
+            {
+                case DamagedArmorState _damagedArmorState:
+                    return "Armor is damaged";
+                break;
+                case DamagedCablesState _damagedCables:
+                    return "Cables are damaged";
+                break;
+                case DirtyState _dirtyState:
+                    return "Part is dirty";
+                break;
+                case OutOfDateState _outOfDateState:
+                    return "System is out of date";
+                break;
+                default:
+                    return "Part is repaired";
+            }
+
+        }
+        
        private void UpdateStateList()
         {
             stateList.Add(DamageCables);

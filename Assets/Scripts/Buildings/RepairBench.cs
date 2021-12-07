@@ -7,7 +7,8 @@ namespace Buildings
     {
         public override bool InsertItem(GameObject interactedObject)
         {
-            _uiManager.ActivateCanvas(CanvasEnum.StructureUI, true);
+            OpenUI(interactedObject);
+            
             ConfigureObject(interactedObject);
             ActivateTimeline();
             return true;
