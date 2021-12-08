@@ -13706,7 +13706,8 @@ MonoBehaviour:
   - {fileID: 1942761307}
   - {fileID: 1177917253}
   - {fileID: 1992097264}
-  lastCanvas: 1
+  lastCanvas: 0
+  _startingCanvas: 1
 --- !u!4 &1920079044
 Transform:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ namespace Interactions
             {
                 if (Input.GetMouseButton(0))
                 {
-                    hit.collider.GetComponent<Screw>().ScrewOff();
+                    hit.collider.GetComponentInParent<Screw>().ScrewBolt();
                 }
                
                

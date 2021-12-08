@@ -1,4 +1,5 @@
-﻿using Interactions;
+﻿using System;
+using Interactions;
 using MechParts;
 using UI;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Buildings
         protected UIManager _uiManager;
         protected bool isInteracting = false;
         
-        protected virtual void Awake()
+        protected virtual void Start()
         {
             _uiManager = FindObjectOfType<UIManager>();
             _structureCanvas = FindObjectOfType<StructureCanvas>();

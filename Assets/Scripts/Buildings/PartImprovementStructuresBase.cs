@@ -23,9 +23,9 @@ namespace Buildings
         
         protected PlayableDirector _director;
 
-        protected override void Awake()
+        protected override void Start()
         {
-            base.Awake();
+            base.Start();
             _director = GetComponent<PlayableDirector>();
         }
 

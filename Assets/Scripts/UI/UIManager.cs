@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using System;
+using Core;
 using UnityEngine;
 
 
@@ -19,7 +20,7 @@ namespace UI
         [SerializeField] private GameObject[] Canvases;
 
         [SerializeField]private CanvasEnum lastCanvas = CanvasEnum.menuUI;
-        
+        [SerializeField] private CanvasEnum _startingCanvas = CanvasEnum.gameUI;
         private MainMenuManager _mainMenuManager = default;
         private bool _initialized = false;
         private bool _gameIsRunning = false;
@@ -28,11 +29,15 @@ namespace UI
         {
             _mainMenuManager = FindObjectOfType<MainMenuManager>();
             _initialized = _mainMenuManager != null;
+        }
+
+        private void Start()
+        {
             if (!_initialized)
             {
+                ActivateCanvas(_startingCanvas,false);
                 return;
             }
-
             SetupUIManager();
             InitMenuCanvas();
         }
