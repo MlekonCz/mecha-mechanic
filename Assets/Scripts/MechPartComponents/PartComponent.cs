@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MechPartComponents
 {
     public abstract class PartComponent : MonoBehaviour
     {
-        [SerializeField] protected GameObject _model;
+        
+        [SerializeField] protected GameObject[] _availableModel;
         [SerializeField] protected List<GameObject> _screws = new List<GameObject>();
         [SerializeField] private int _totalNumberOfScrews;
-        
+
+
+        private bool _isOperable = true;
         private int _numberOfActiveScrews;
         
         private PartComponent _parentComponent = null;
@@ -19,6 +23,8 @@ namespace MechPartComponents
         public event CallBackType _screwsCanBeManipulated;
 
 
+        
+        
         private void OnEnable()
         {
             if (_parentComponent != null)
@@ -38,7 +44,6 @@ namespace MechPartComponents
             _numberOfActiveScrews = _totalNumberOfScrews;
            
         }
-        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.I))
@@ -51,6 +56,10 @@ namespace MechPartComponents
             }
         }
 
+        public void MakeComponentInteractable(bool isOperable)
+        {
+            _isOperable = isOperable;
+        }
         protected virtual void AccessParentComponent()
         {
             _parentComponent = transform.parent.GetComponent<PartComponent>();
@@ -62,29 +71,45 @@ namespace MechPartComponents
         }
         protected virtual void InstallPart()
         {
+            if (!_isOperable){return;}
+            
             foreach (GameObject screw in _screws)
             {
                 screw.SetActive(true);
             }
-            _model.SetActive(true);
+            _availableModel[0].SetActive(true);
             
         }
         protected virtual void UnInstallPart()
         {
             _componentIsRemoved?.Invoke();
             _screwsCanBeManipulated?.Invoke(false);
-            _model.SetActive(false);
+            _availableModel[0].SetActive(false);
         }
         
         public void ChangeStatusOfScrew(bool activate)
         {
             if (activate)
             {
-                if (_numberOfActiveScrews == _totalNumberOfScrews){return;}
+                if (_numberOfActiveScrews == _totalNumberOfScrews)
+                {
+                    if (_parentComponent != null)
+                    {
+                        _parentComponent.MakeComponentInteractable(true);
+                    }
+                    
+                    return;
+                }
                 _numberOfActiveScrews++;
+                
             }
             else
             {
+                if (_parentComponent != null)
+                {
+                    _parentComponent.MakeComponentInteractable(false);
+                }
+               
                 if (_numberOfActiveScrews == 0){return;}
                 _numberOfActiveScrews--;
             }
