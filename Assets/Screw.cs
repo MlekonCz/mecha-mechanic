@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Screw : MonoBehaviour
 {
-    [SerializeField]private GameObject _screwModel = null;
+    [SerializeField]private GameObject _screwModel;
     
     [SerializeField] private float _screwingSpeed = 0.7f;
     [SerializeField] private float _screwingRotation = 2f;
@@ -13,17 +13,34 @@ public class Screw : MonoBehaviour
 
     [SerializeField] private bool _isScrewingBack = false;
 
-    private PartComponent partComponent;
+    private bool _canBeManipulated = false;
+    private PartComponent _partComponent;
     private float _startingHeight;
     private float currentHeight;
+
+    private void OnEnable()
+    {
+        _partComponent._screwsCanBeManipulated += EnableManipulation;
+    }
+
+    private void Awake()
+    {
+        _partComponent = gameObject.transform.parent.GetComponentInParent<PartComponent>();
+    }
 
     private void Start()
     {
         _startingHeight = gameObject.transform.localPosition.y;
-        partComponent = GetComponentInParent<PartComponent>();
+    }
+
+    private void EnableManipulation(bool canBeManipulated)
+    {
+        _canBeManipulated = canBeManipulated;
     }
     public void ScrewBolt()
-    { 
+    {
+        if (!_canBeManipulated){return;}
+        
         currentHeight = gameObject.transform.localPosition.y;
        
         if (_isScrewingBack)
@@ -41,9 +58,9 @@ public class Screw : MonoBehaviour
     {
         if (currentHeight <= _startingHeight)
         {
-            if (partComponent != null)
+            if (_partComponent != null)
             {
-                partComponent.ChangeStatusOfScrew(true);
+                _partComponent.ChangeStatusOfScrew(true);
             }
             Debug.Log("Screwed in");
             return;
@@ -55,9 +72,9 @@ public class Screw : MonoBehaviour
     {
         if (currentHeight >= _startingHeight + _screwRange)
         {
-            if (partComponent != null)
+            if (_partComponent != null)
             {
-                partComponent.ChangeStatusOfScrew(false);
+                _partComponent.ChangeStatusOfScrew(false);
             }
             
             Debug.Log("Screwed out");
@@ -82,6 +99,10 @@ public class Screw : MonoBehaviour
             gameObject.transform.Translate(0, _screwingSpeed * Time.deltaTime, 0, Space.Self);
            
         }
-       
+    }
+
+    private void OnDisable()
+    {
+        
     }
 }
