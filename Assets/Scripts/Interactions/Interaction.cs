@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Buildings;
+using KeyInput;
 using MechParts;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,7 +18,8 @@ namespace Interactions
         
         [SerializeField] private float _interactionDistance;
         [SerializeField] private float liftingPower = 10f;
-        
+
+        private InputManager _inputManager;
         private IItemInserter _itemInserter = null;
         private GameObject _interactableObject;
         private ObjectPicker _objectPicker;
@@ -29,6 +31,7 @@ namespace Interactions
         private void Awake()
         {
             _objectPicker = GetComponent<ObjectPicker>();
+            _inputManager = FindObjectOfType<InputManager>();
         }
         private void Update()
         {
@@ -37,7 +40,7 @@ namespace Interactions
         }
         private void StartInteraction()
         {
-            if (Input.GetKeyDown(_interactionButton))
+            if (Input.GetKeyDown(_inputManager.GetKeyForAction(KeyBindingActions.Interact)))
             {
                 if (_pickedUpObject == false)
                 {
