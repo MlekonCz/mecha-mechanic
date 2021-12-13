@@ -7,6 +7,11 @@
         Interact,
         DismantleMod,
         AssembleMod,
-        Pause
+        Pause,
+        Uninstall,
+        Install,
+        Leave,
+        
+        
     }
 }

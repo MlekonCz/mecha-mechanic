@@ -10,9 +10,9 @@ namespace Core
 
         private void Start()
         {
-            _simpleWalkerController = FindObjectOfType<SimpleWalkerController>();
-            _cameraController = FindObjectOfType<CameraController>();
+            GetReferences();
         }
+        
         public void LockMovement(bool lockMovement)
         {
             if (lockMovement)
@@ -23,9 +23,19 @@ namespace Core
             {
                 Cursor.lockState = CursorLockMode.Locked;
             }
-           
+
+            if (!_simpleWalkerController || !_cameraController)
+            {
+                GetReferences();
+            }
             _simpleWalkerController._lockedMovement = lockMovement;
             _cameraController._lockedCamera = lockMovement;
+        }
+
+        private void GetReferences()
+        {
+            _simpleWalkerController = FindObjectOfType<SimpleWalkerController>();
+            _cameraController = FindObjectOfType<CameraController>();
         }
     }
 }

@@ -413,8 +413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059add97d8ecc604093a761abdb94c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionButton: 101
-  _insertKey: 102
   _mainCamera: {fileID: 3197294841644538748}
   _layerMaskToIgnore:
     serializedVersion: 2
@@ -479,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCam: {fileID: 3177430959692829596}
-  _layerMaskToIgnore:
+  _layerMaskToSee:
     serializedVersion: 2
     m_Bits: 256
 --- !u!1 &3233394416157982786

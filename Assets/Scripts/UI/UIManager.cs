@@ -1,5 +1,6 @@
 ﻿using System;
 using Core;
+using KeyInput;
 using UnityEngine;
 
 
@@ -24,9 +25,12 @@ namespace UI
         private MainMenuManager _mainMenuManager = default;
         private bool _initialized = false;
         private bool _gameIsRunning = false;
+        
+        private InputManager _inputManager;
 
         private void Awake()
         {
+            _inputManager = FindObjectOfType<InputManager>();
             _mainMenuManager = FindObjectOfType<MainMenuManager>();
             _initialized = _mainMenuManager != null;
         }
@@ -76,7 +80,7 @@ namespace UI
         private void HandlePauseScreen()
         {
             return;
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(_inputManager.GetKeyForAction(KeyBindingActions.Pause)))
             {
                 if (!Canvases[0].activeSelf)
                 {

@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UnityEditor;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Audio
 {
     public enum SFXType
     {
@@ -19,7 +18,7 @@ namespace DefaultNamespace
         [LabelWidth(100)]
         [OnValueChanged("SFXChange")]
         [InlineButton("PlaySFX")]
-        public SFXType sfxType = DefaultNamespace.SFXType.Explosion;
+        public SFXType sfxType = Audio.SFXType.Explosion;
         
         [PropertyOrder(-2)]
         [LabelText("$sfxLabel")]
@@ -83,13 +82,13 @@ namespace DefaultNamespace
         
             switch (sfxType)
             {
-                case DefaultNamespace.SFXType.Explosion:
+                case Audio.SFXType.Explosion:
                     sfxList = SFXManager.instance.explosionSFX;
                     break;
-                case DefaultNamespace.SFXType.GunShot:
+                case Audio.SFXType.GunShot:
                     sfxList = SFXManager.instance.gunShotSFX;
                     break;
-                case DefaultNamespace.SFXType.Reload:
+                case Audio.SFXType.Reload:
                     sfxList = SFXManager.instance.reloadSFX;
                     break;
                 default:

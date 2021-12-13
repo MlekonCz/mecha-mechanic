@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 518074745918858246}
   - component: {fileID: 518074745918858245}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Screw (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _screwModel: {fileID: 518074747635464745}
-  _screwingSpeed: 0.1
+  _screwingSpeed: 0.25
   _screwingRotation: 300
   _screwRange: 0.2
   _isScrewingBack: 0
+  _canBeManipulated: 0
 --- !u!1 &518074746013311651
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +74,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518074746013311651}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -111,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 518074746345796380}
   - component: {fileID: 518074746345796379}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Screw (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,10 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _screwModel: {fileID: 518074747613891164}
-  _screwingSpeed: 0.1
+  _screwingSpeed: 0.25
   _screwingRotation: 300
   _screwRange: 0.2
   _isScrewingBack: 0
+  _canBeManipulated: 0
 --- !u!1 &518074746439914726
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 518074746439914725}
   - component: {fileID: 518074746439914724}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Screw (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,10 +197,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _screwModel: {fileID: 518074747733119065}
-  _screwingSpeed: 0.1
+  _screwingSpeed: 0.25
   _screwingRotation: 300
   _screwRange: 0.2
   _isScrewingBack: 0
+  _canBeManipulated: 0
 --- !u!1 &518074747364461983
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 518074747705055927}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Screws
   m_TagString: Untagged
   m_Icon: {fileID: 0}

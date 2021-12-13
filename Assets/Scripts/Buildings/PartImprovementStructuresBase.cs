@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using KeyInput;
+using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -63,7 +64,7 @@ namespace Buildings
        
         protected virtual void Update() 
         {
-            if (Input.GetKeyDown(KeyCode.Q) && isInteracting) // only for testing purpose for now
+            if (Input.GetKeyDown(_inputManager.GetKeyForAction(KeyBindingActions.Leave)) && isInteracting) // only for testing purpose for now
             {
                 CloseUI();
                 _director.playableAsset = leaveStation;

@@ -1,5 +1,6 @@
 ﻿using System;
 using Interactions;
+using KeyInput;
 using MechParts;
 using UI;
 using UnityEngine;
@@ -11,9 +12,11 @@ namespace Buildings
         private StructureCanvas _structureCanvas;
         protected UIManager _uiManager;
         protected bool isInteracting = false;
+        protected InputManager _inputManager;
         
         protected virtual void Start()
         {
+            _inputManager = FindObjectOfType<InputManager>();
             _uiManager = FindObjectOfType<UIManager>();
             _structureCanvas = FindObjectOfType<StructureCanvas>();
         }

@@ -9,10 +9,7 @@ using UnityEngine;
 namespace Interactions
 {
     public class Interaction : MonoBehaviour
-    {
-        [SerializeField] private KeyCode _interactionButton = KeyCode.E;
-        [SerializeField] private KeyCode _insertKey = KeyCode.F;
-      
+    {      
         [SerializeField] private Transform _mainCamera;
         [SerializeField] private LayerMask _layerMaskToIgnore;
         
@@ -61,7 +58,7 @@ namespace Interactions
         void InsertItem()
         {
             if (!itemCanBeInserted){return;}
-            if (!Input.GetKeyDown(_insertKey)){return;}
+            if (!Input.GetKeyDown(_inputManager.GetKeyForAction(KeyBindingActions.PickUp))){return;}
             
             if(_itemInserter.InsertItem(_interactableObject))
             {

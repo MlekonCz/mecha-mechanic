@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Audio
 {
     [CreateAssetMenu(fileName = "New SFX Clip", menuName = "Definition/NewSFXClip", order = 0)]
     public class SFXClipDefinition : ScriptableObject

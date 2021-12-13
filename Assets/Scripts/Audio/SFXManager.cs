@@ -1,12 +1,10 @@
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Audio
 {
     public class SFXManager : MonoBehaviour
     {

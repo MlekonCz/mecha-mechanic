@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using KeyInput;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,11 +12,13 @@ namespace MechPartComponents
         [SerializeField] protected GameObject[] _availableModel;
         [SerializeField] protected List<GameObject> _screws = new List<GameObject>();
         [SerializeField] private int _totalNumberOfScrews;
+        
 
 
         private bool _isOperable = true;
         private int _numberOfActiveScrews;
-        
+
+        private InputManager _inputManager;
         private PartComponent _parentComponent = null;
 
         public event Action _componentIsRemoved;
@@ -35,22 +38,23 @@ namespace MechPartComponents
 
         private void Awake()
         {
-            AccessParentComponent();
+            _inputManager = FindObjectOfType<InputManager>();
+           
         }
 
         private void Start()
         {
+            AccessParentComponent();
             _totalNumberOfScrews = _screws.Count;
             _numberOfActiveScrews = _totalNumberOfScrews;
-           
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(_inputManager.GetKeyForAction(KeyBindingActions.Install)))
             {
                 InstallPart();
             }
-            if (_numberOfActiveScrews == 0 && Input.GetKeyDown(KeyCode.U))
+            if (_numberOfActiveScrews == 0 && Input.GetKeyDown(_inputManager.GetKeyForAction(KeyBindingActions.Uninstall)))
             {
                 UnInstallPart();
             }
